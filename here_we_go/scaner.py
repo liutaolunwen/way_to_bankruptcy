@@ -40,6 +40,8 @@ for code in my_codes:
 #----------------------策略区--------------------------------------------------
     try:
         tmp_df = ts.pro_bar(ts_code= code, start_date=START_DATE,end_date=OB_DATE,ma=[15, 35, 60,125])
+#降速器：调取一次睡眠10秒
+        time.sleep(10)
         signal_1 = tmp_df.iat[0,5] > tmp_df.iat[0,11]
         signal_2 = tmp_df.iat[0,5] > tmp_df.iat[0,13]
         signal_3 = tmp_df.iat[0,5] > tmp_df.iat[0,15]
